@@ -1,0 +1,239 @@
+/* ========== Contenedor Principal ========== */
+.container-page {
+  z-index: 500;
+  position: relative;
+}
+
+.wrapper {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10%;
+  padding-right: 5%;
+  position: relative;
+}
+
+/* ========== Navegación Lateral Izquierda ========== */
+.nav-left {
+  z-index: 600;
+  width: 6%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 5%;
+  padding-bottom: 30px;
+  position: fixed;
+}
+
+.nav-left-item {
+  flex: 0 0 auto;
+  margin-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 15px;
+  transform: rotate(-90deg);
+}
+
+.nav-left-item.nav-copyright {
+  width: 110px;
+  position: absolute;
+  top: auto;
+  bottom: 3vh;
+  left: 0%;
+  right: 0%;
+}
+
+.nav-left-link {
+  color: var(--charcoal);
+  text-align: center;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  border: 0 solid #000;
+  font-size: 10px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 0.3s;
+  display: block;
+}
+
+.nav-left-link.is-pink {
+  color: white;
+}
+
+.nav-line {
+  width: 1px;
+  height: 100px;
+  background-color: yellow;
+  margin-top: 10px;
+  margin-bottom: 80px;
+}
+
+.nav-line.is-pink {
+  background-color: white;
+}
+
+/* ========== Secciones de Página ========== */
+.section-left {
+  width: 25%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: fixed;
+}
+
+.section-right {
+  width: 65%;
+  height: 90vh;
+  float: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  padding-top: 5vh;
+  text-align: center;
+  position: relative;
+  top: 0%;
+  bottom: 0%;
+  left: auto;
+  right: 0%;
+}
+
+/* ========== Contenido Principal ========== */
+.content-main {
+  margin-left: -10%;
+  padding-top: 90%;
+}
+
+.header-mask {
+  margin-bottom: 2vh;
+  padding-top: 5%;
+  overflow: hidden;
+}
+
+.description-mask {
+  display: block;
+  overflow: hidden;
+}
+
+.description {
+  max-width: 80%;
+  margin-left: 0;
+  margin-right: 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.9em;
+  position: relative;
+}
+
+/* ========== Navegación Principal Superior ========== */
+.nav {
+  text-align: left;
+  padding-top: 10%;
+  padding-left: 6%;
+  color: #ece7e1;
+}
+
+.nav-item {
+  text-align: right;
+  padding-right: 5%;
+  display: inline-block;
+  position: relative;
+}
+
+.nav-item .linky {
+  z-index: 100;
+  color: var(--charcoal);
+  text-align: left;
+  text-transform: uppercase;
+  border: 0 solid #000;
+  font-size: 11vw;
+  font-weight: 300;
+  line-height: 0.95em;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out,
+    font-size 0.3s ease-in-out;
+}
+
+.nav-item .linky:hover {
+  cursor: pointer;
+  transform: translate(20px, 0px);
+}
+
+/* ========== Copyright ========== */
+.copyright {
+  text-align: center;
+  letter-spacing: 4px;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+/* ========== Responsive (Pantallas < 991px) ========== */
+@media screen and (max-width: 991px) {
+  .wrapper {
+    max-width: 80%;
+    padding-left: 5%;
+  }
+
+  .section-left {
+    width: 100%;
+    height: auto;
+    padding-top: 30%;
+    position: static;
+  }
+
+  .section-right {
+    width: 100%;
+    height: auto;
+    padding-top: 0;
+    display: block;
+  }
+
+  .content.content-main {
+    margin-left: 0%;
+    padding-top: 0%;
+  }
+
+  .nav {
+    padding-left: 0%;
+  }
+
+  .nav-left {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    padding-bottom: 0;
+    padding-left: 0;
+    position: static;
+  }
+
+  .nav-line {
+    width: 100px;
+    height: 2px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .nav-left-item {
+    margin-bottom: 0;
+    transform: rotate(0);
+  }
+
+  .nav-left-item.nav-copyright {
+    flex: 1;
+    position: static;
+  }
+
+  .copyright {
+    text-align: right;
+  }
+}

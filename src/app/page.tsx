@@ -1,103 +1,138 @@
-import Image from "next/image";
+"use client";
+import Link from "next/link";
+import "./projects/test.css";
+import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [isAnimating, setIsAnimating] = useState(true);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsAnimating(false), 500);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  // VARIANTES DE ANIMACIÓN
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const textVariants: any = {
+    hidden: { opacity: 0, y: 20, filter: "blur(4px)" },
+    show: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: { duration: 2, ease: [0.25, 0.1, 0.25, 1] }, // reemplaza aquí
+    },
+  };
+
+  return (
+    <>
+      <AnimatePresence>
+        {isAnimating && (
+          <motion.div
+            initial={{ y: "-100%" }}
+            animate={{ y: "0%" }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="fixed top-0 left-0 w-full h-full bg-white z-50"
+          />
+        )}
+      </AnimatePresence>
+
+      <main className="font-serif">
+        {!isAnimating && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5 }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+            <div className="container-page">
+              <div className="nav-left">
+                <div className="nav-left-item">
+                  <Link href="/" className="nav-left-link is-pink">
+                    HOME
+                  </Link>
+                </div>
+                <div className="nav-line is-pink"></div>
+                <div className="nav-left-item nav-copyright">
+                  <div className="copyright">©/2025</div>
+                </div>
+              </div>
+
+              <div className="wrapper">
+                <div className="section-left">
+                  <div className="content content-main">
+                    <motion.div
+                      className="header-mask"
+                      variants={containerVariants}
+                      initial="hidden"
+                      animate="show"
+                    >
+                      <motion.h1
+                        className="header swipe-up"
+                        variants={textVariants}
+                      >
+                        Aldaire Yngaruca
+                      </motion.h1>
+
+                      <div className="description-mask">
+                        <motion.p
+                          className="description"
+                          variants={textVariants}
+                        >
+                          This is a showcase of my best work in a variety of
+                          fields including Graphic and Web Design, No-Code
+                          Development, Product Design and Product Management.
+                        </motion.p>
+                      </div>
+
+                      <div className="description-mask">
+                        <motion.p
+                          className="description"
+                          variants={textVariants}
+                        >
+                          This is a showcase of my best work in a variety of
+                          fields including Graphic and Web Design, No-Code
+                        </motion.p>
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
+
+                <div className="section-right">
+                  <div className="nav">
+                    <div className="nav-item">
+                      {["WORK", "ABOUT", "CONTACT"].map((item, index) => (
+                        <motion.div
+                          key={item}
+                          variants={textVariants}
+                          initial="hidden"
+                          animate="show"
+                          transition={{ delay: 0.5 + index * 0.2 }}
+                        >
+                          <Link
+                            href={`/${item.toLowerCase()}`}
+                            className="linky font-bold"
+                          >
+                            {item}
+                          </Link>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    </>
   );
 }
