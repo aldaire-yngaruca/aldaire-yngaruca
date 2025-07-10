@@ -35,18 +35,6 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>Aldaire Yngaruca </title>
-        <meta property="og:title" content="Aldaire Yngaruca – Portfolio" />
-        <meta property="og:description" content="Portafolio de Taxugarita" />
-        <meta
-          property="og:image"
-          content="https://aldaire.netlify.app/stickers/alda.jpeg"
-        />
-        <meta property="og:url" content="https://aldaire.netlify.com/" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
       <AnimatePresence>
         {isAnimating && (
           <motion.div
