@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import "./projects/test.css";
+import "../projects/test.css";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Head from "next/head";
@@ -38,10 +38,10 @@ export default function Home() {
       <AnimatePresence>
         {isAnimating && (
           <motion.div
-            initial={{ y: "-100%" }}
-            animate={{ y: "0%" }}
+            initial={{ y: "0%" }}
+            animate={{ y: "-100%" }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 1 }}
             className="fixed top-0 left-0 w-full h-full bg-white z-50"
           />
         )}
@@ -69,7 +69,7 @@ export default function Home() {
 
               <div className="wrapper">
                 <div className="section-left">
-                  <div className="content content-main">
+                  <div className="content">
                     <motion.div
                       className="header-mask"
                       variants={containerVariants}
@@ -77,10 +77,10 @@ export default function Home() {
                       animate="show"
                     >
                       <motion.h1
-                        className="header swipe-up"
+                        className="header header-large align-left"
                         variants={textVariants}
                       >
-                        Aldaire Yngaruca
+                        Hello.
                       </motion.h1>
                     </motion.div>
                     <motion.div
@@ -97,42 +97,13 @@ export default function Home() {
                           This is a showcase of my best work in a variety of
                           fields including Graphic and Web Design, No-Code
                           Development, Product Design and Product Management.
-                        </motion.p>
-                      </div>
-
-                      <div className="description-mask">
-                        <motion.p
-                          className="description"
-                          variants={textVariants}
-                        >
+                          <br />
+                          <br />
                           This is a showcase of my best work in a variety of
                           fields including Graphic and Web Design, No-Code
                         </motion.p>
                       </div>
                     </motion.div>
-                  </div>
-                </div>
-
-                <div className="section-right">
-                  <div className="nav">
-                    <div className="nav-item">
-                      {["WORK", "ABOUT", "CONTACT"].map((item, index) => (
-                        <motion.div
-                          key={item}
-                          variants={textVariants}
-                          initial="hidden"
-                          animate="show"
-                          transition={{ delay: 0.5 + index * 0.2 }}
-                        >
-                          <Link
-                            href={`/${item.toLowerCase()}`}
-                            className="linky font-bold"
-                          >
-                            {item}
-                          </Link>
-                        </motion.div>
-                      ))}
-                    </div>
                   </div>
                 </div>
               </div>

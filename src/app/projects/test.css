@@ -60,6 +60,9 @@
 .nav-left-link.is-pink {
   color: white;
 }
+.nav-left-link.is-pink:hover {
+  text-decoration: line-through;
+}
 
 .nav-line {
   width: 1px;
@@ -117,10 +120,23 @@
   padding-top: 5%;
   overflow: hidden;
 }
+.header {
+  text-align: left;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: var(--font-cormorant);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.75em;
+  position: relative;
+}
 
 .description-mask {
   display: block;
   overflow: hidden;
+  font-family: var(--font-geist-mono);
 }
 
 .description {
@@ -131,6 +147,7 @@
   font-weight: 400;
   line-height: 1.9em;
   position: relative;
+  letter-spacing: 0.5px;
 }
 
 /* ========== Navegación Principal Superior ========== */
@@ -162,11 +179,26 @@
   position: relative;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out,
     font-size 0.3s ease-in-out;
+  font-family: var(--font-cormorant);
 }
 
 .nav-item .linky:hover {
   cursor: pointer;
   transform: translate(20px, 0px);
+}
+
+.header.header-large {
+  text-align: center;
+  letter-spacing: 0;
+  text-transform: none;
+  font-family: var(--font-cormorant);
+  font-size: 14vw;
+  font-weight: 300;
+  line-height: 1em;
+}
+
+.header.header-large.align-left {
+  text-align: left;
 }
 
 /* ========== Copyright ========== */
@@ -235,5 +267,33 @@
 
   .copyright {
     text-align: right;
+  }
+
+  .description {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    max-width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .section-left {
+    padding-top: 12%;
+  }
+  .nav-left {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+  .nav-left-item {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .nav-left-item.nav-copyright {
+    padding-left: 0;
+    padding-right: 0;
   }
 }

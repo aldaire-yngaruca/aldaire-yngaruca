@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Playfair_Display,
+  Cormorant_Garamond,
+} from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -15,6 +15,12 @@ const playfair = Playfair_Display({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-cormorant",
+  weight: ["500"], // 👈 Añadir al menos un peso válido
 });
 
 export const metadata: Metadata = {
@@ -42,8 +48,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={playfair.variable}>
-      <body className={`${geistMono.variable} antialiased`}>{children}</body>
+    <html
+      lang="en"
+      className={`${playfair.variable} ${geistMono.variable} ${cormorant.variable}`}
+    >
+      <body>{children}</body>
     </html>
   );
 }
