@@ -94,13 +94,18 @@ export default function Home() {
                           className="description"
                           variants={textVariants}
                         >
-                          This is a showcase of my best work in a variety of
-                          fields including Graphic and Web Design, No-Code
-                          Development, Product Design and Product Management.
+                          Lorem ipsum dolor sit amet consectetur, adipisicing
+                          elit. Veniam hic sequi corporis, excepturi
+                          consequuntur quas nemo quisquam exercitationem dolorem
+                          iure eum. Assumenda, non porro perspiciatis harum
+                          necessitatibus veniam optio illo!
                           <br />
                           <br />
-                          This is a showcase of my best work in a variety of
-                          fields including Graphic and Web Design, No-Code
+                          Lorem ipsum dolor sit amet consectetur, adipisicing
+                          elit. Aliquam eos at fugiat dolorum corporis qui
+                          accusantium ipsam velit nostrum neque sapiente eius
+                          vitae, consequatur possimus? Nemo possimus
+                          voluptatibus modi dolor!
                         </motion.p>
                       </div>
                     </motion.div>

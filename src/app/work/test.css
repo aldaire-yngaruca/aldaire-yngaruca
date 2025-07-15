@@ -117,6 +117,15 @@
   right: 0%;
 }
 
+.section-right.section-long {
+  height: auto;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  padding-left: 3%;
+  display: block;
+  position: relative;
+}
+
 /* ========== Contenido Principal ========== */
 .content-main {
   margin-left: -10%;
@@ -247,7 +256,7 @@ p {
   position: relative;
 }
 
-.nav-item .linky {
+.nav-item .nav-link {
   z-index: 100;
   color: var(--charcoal);
   text-align: left;
@@ -264,7 +273,14 @@ p {
   font-family: var(--font-cormorant);
 }
 
-.nav-item .linky:hover {
+.nav-link.is-pink {
+  color: white;
+  padding-bottom: 2%;
+  font-size: 7vw;
+  line-height: 1em;
+}
+
+.nav-item .nav-link:hover {
   cursor: pointer;
   transform: translate(20px, 0px);
 }
@@ -279,7 +295,7 @@ p {
   line-height: 1em;
 }
 
-.header.header-large.align-left {
+.header .header-large .align-left {
   text-align: left;
 }
 
@@ -301,12 +317,54 @@ p {
   left: auto;
   right: 0%;
 }
+.nav-left {
+  z-index: 600;
+  width: 6%;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 5%;
+  padding-bottom: 30px;
+  display: flex;
+  position: fixed;
+}
 
+.nav-sub {
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+  margin-top: -18px;
+  margin-bottom: 24px;
+  display: flex;
+}
+.role {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  align-self: flex-end;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.badge {
+  background-color: white;
+  color: black;
+  border-radius: 20px;
+  align-self: center;
+  padding: 0 8px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 20px;
+}
 /* ========== Responsive (Pantallas < 991px) ========== */
 @media screen and (max-width: 991px) {
   .wrapper {
     max-width: 80%;
     padding-left: 5%;
+  }
+  .content.content-main {
+    margin-left: 0%;
+    padding-top: 0%;
   }
 
   .section-left {
@@ -333,29 +391,8 @@ p {
   }
 
   .nav-left {
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    padding-bottom: 0;
-    padding-left: 0;
-    position: static;
-  }
-
-  .nav-line {
-    width: 100px;
-    height: 2px;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .nav-left-item {
-    margin-bottom: 0;
-    transform: rotate(0);
-  }
-
-  .nav-left-item.nav-copyright {
-    flex: 1;
-    position: static;
+    width: 10%;
+    padding-left: 6px;
   }
 
   .copyright {
@@ -365,10 +402,19 @@ p {
   .description {
     max-width: 100%;
   }
-  .section-left.section-long {
+  .section-left .section-long {
     width: 100%;
   }
-  .description-static.description-long {
+  .nav {
+    padding-top: 10%;
+    padding-left: 0%;
+  }
+  .section-right.section-long {
+    padding-top: 0%;
+    padding-left: 0%;
+  }
+
+  .description-static .description-long {
     max-width: 100%;
   }
   .profile-img {
@@ -381,6 +427,29 @@ p {
     left: auto;
     right: 0%;
   }
+  .nav-item {
+    padding-bottom: 2%;
+    display: block;
+  }
+
+  .nav-link.is-pink {
+    letter-spacing: 0;
+    font-size: 11vw;
+    line-height: 1em;
+  }
+  .nav-sub {
+    margin-top: -15px;
+    margin-bottom: 10px;
+  }
+  .role {
+    font-size: 10px;
+  }
+  .badge {
+    padding-left: 6px;
+    padding-right: 6px;
+    font-size: 10px;
+    line-height: 17px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -392,19 +461,13 @@ p {
   .section-left {
     padding-top: 12%;
   }
-  .nav-left {
-    padding-left: 7%;
-    padding-right: 7%;
-  }
+
   .nav-left-item {
     text-align: center;
     padding-left: 10px;
     padding-right: 10px;
   }
-  .nav-left-item.nav-copyright {
-    padding-left: 0;
-    padding-right: 0;
-  }
+
   .quote {
     padding-bottom: 0%;
     font-size: 24px;
@@ -416,5 +479,46 @@ p {
     bottom: 0%;
     left: auto;
     right: 0%;
+  }
+  .nav-link.is-pink {
+    letter-spacing: 0;
+    font-size: 11vw;
+    line-height: 1em;
+  }
+  .nav-left {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    padding-bottom: 0;
+    padding-left: 0;
+    position: static;
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+  .nav-left-item {
+    margin-bottom: 0;
+    transform: rotate(0);
+  }
+  .nav-left-link {
+    font-size: 10px;
+    display: inline-block;
+  }
+  .nav-line {
+    width: 40px;
+    margin-left: 7px;
+    margin-right: 17px;
+    padding-right: 0;
+    height: 2px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .nav-left-item.nav-copyright {
+    flex: 1;
+    position: static;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .nav-sub {
+    display: none;
   }
 }

@@ -92,10 +92,13 @@ export default function Home() {
                         <motion.p
                           className="description"
                           variants={textVariants}
+                          initial="hidden"
+                          animate="show"
                         >
-                          This is a showcase of my best work in a variety of
-                          fields including Graphic and Web Design, No-Code
-                          Development, Product Design and Product Management.
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Corrupti dolore, velit quaerat vel magnam,
+                          tenetur tempore error, tempora deleniti non
+                          perferendis illum enim repellat rerum?.
                         </motion.p>
                       </div>
 
@@ -104,8 +107,8 @@ export default function Home() {
                           className="description"
                           variants={textVariants}
                         >
-                          This is a showcase of my best work in a variety of
-                          fields including Graphic and Web Design, No-Code
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit.
                         </motion.p>
                       </div>
                     </motion.div>
@@ -125,7 +128,7 @@ export default function Home() {
                         >
                           <Link
                             href={`/${item.toLowerCase()}`}
-                            className="linky font-bold"
+                            className="nav-link font-bold"
                           >
                             {item}
                           </Link>

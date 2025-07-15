@@ -12,6 +12,7 @@ export default function AboutPage() {
     const timeout = setTimeout(() => setIsAnimating(false), 500);
     return () => clearTimeout(timeout);
   }, []);
+
   const MotionImage = motion(Image);
 
   // VARIANTES DE ANIMACIÓN
@@ -97,33 +98,30 @@ export default function AboutPage() {
                     variants={textVariants}
                   >
                     <span className="quote">
-                      I'm Lauren. A designer, maker and problem solver. <br />
+                      I'm Aldaire. A Web UI developer, maker and problem solver.{" "}
+                      <br />
                     </span>
                     <br />
-                    The cusp of art and technology has always fascinated me and
-                    I've never been afraid to just jump in and give it a go,
-                    whether it's Paint, Photoshop, Sketch&nbsp;or CSS. I’ve been
-                    designing with computers since the day I first opened
-                    Microsoft Paint. <br />
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quae beatae aliquid natus, voluptates maxime maiores
+                    cupiditate quas perferendis odit consequatur, ut molestias,
+                    consectetur sit. Accusantium eius obcaecati perferendis
+                    nesciunt dolores? <br />
                     <br />
-                    Fast forward to 2023 and I’ve tried it all, from Digital
-                    Campaign Design and Flash Actionscript to Web Design,
-                    Animation, HTML/CSS, No-Code Web Development, Product Design
-                    and Product Management. Everything I have done, small or
-                    big, has been a vital stepping stone for where I am today.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Ratione rerum quis, hic labore quod odio, iure mollitia,
+                    velit molestiae aut dicta rem? Quisquam quam consectetur
+                    incidunt doloribus. Veniam, qui molestiae!
                     <br />
                     <br />
-                    What excites me most about being a Product Designer is being
-                    able to design and create things that have purpose and solve
-                    real problems. It goes beyond designing buttons and websites
-                    and involves having a passion for designing experiences and
-                    solutions that help people, whether it's helping them make
-                    better videos, market themselves online, or buy something
-                    online. Leaning into customer insight and understanding
-                    their needs, finding the right problems to solve, delivering
-                    solutions as quickly as possible, learning from those and
-                    then iterating and improving that value over time is the key
-                    to great product design.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Molestiae recusandae odio tempora, ad ipsum mollitia quaerat
+                    omnis labore qui! Voluptate est ipsum ut corporis eaque
+                    commodi quo earum eveniet numquam! Lorem ipsum dolor sit
+                    amet consectetur adipisicing elit. Voluptas amet quos,
+                    sapiente necessitatibus laborum pariatur, quis reiciendis
+                    provident dolorem earum fugit repellat non sunt aliquam
+                    blanditiis commodi. Mollitia, illo neque.
                     <br />
                     <br />
                     This is one of my favourite quotes (by Peter Drucker):
@@ -134,11 +132,10 @@ export default function AboutPage() {
                       which should not be done at all.”
                     </span>
                     <br />
-                    This resonates so deeply with me because I have no desire to
-                    make pretty things just for the sake of it. Some people love
-                    that!&nbsp;But it's not for me. I only want to make, design
-                    or build ideas and products that are real, that matter and
-                    have an impact in the world.
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Eius eligendi sequi neque asperiores quia culpa expedita,
+                    minima dolores perspiciatis in maxime vel soluta temporibus
+                    obcaecati quis dolor eveniet sit sunt?
                     <br />
                     <br />
                     <span className="header">
@@ -175,7 +172,7 @@ export default function AboutPage() {
                   </motion.p>
 
                   <motion.a
-                    href="https://cdn.prod.website-files.com/5343bca08039b78d170002c4/620953e18255891c95514868_My%20CV.pdf"
+                    href="https://aldaire.netlify.app/"
                     target="_blank"
                     className="button w-button"
                     variants={textVariants}
