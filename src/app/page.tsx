@@ -1,9 +1,8 @@
 "use client";
 import Link from "next/link";
-import "./projects/test.css";
+import "./work/test.css";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Head from "next/head";
 
 export default function Home() {
   const [isAnimating, setIsAnimating] = useState(true);
