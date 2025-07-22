@@ -1,42 +1,19 @@
 "use client";
 import Link from "next/link";
-import "./work/test.css";
-import { useState, useEffect } from "react";
+import "./main.css";
 import { AnimatePresence, motion } from "framer-motion";
+import useAnimating from "./hooks/useAnimating";
+import { NAVBAR_LIST } from "@/constants/navbarList";
 
 export default function Home() {
-  const [isAnimating, setIsAnimating] = useState(true);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => setIsAnimating(false), 500);
-    return () => clearTimeout(timeout);
-  }, []);
-
-  // VARIANTES DE ANIMACIÓN
-  const containerVariants = {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const textVariants: any = {
-    hidden: { opacity: 0, y: 20, filter: "blur(4px)" },
-    show: {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      transition: { duration: 2, ease: [0.25, 0.1, 0.25, 1] }, // reemplaza aquí
-    },
-  };
+  const { isAnimating, containerVariants, textVariants } = useAnimating();
 
   return (
     <>
       <AnimatePresence>
         {isAnimating && (
           <motion.div
+            aria-hidden="true"
             initial={{ y: "-100%" }}
             animate={{ y: "0%" }}
             exit={{ opacity: 0 }}
@@ -95,14 +72,16 @@ export default function Home() {
                           initial="hidden"
                           animate="show"
                         >
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Corrupti dolore, velit quaerat vel magnam,
-                          tenetur tempore error, tempora deleniti non
-                          perferendis illum enim repellat rerum?.
+                          Software developer with +6 years of experience working
+                          in different companies from diverse fields such as
+                          e-commerce, fintech, digital agency. Working on my
+                          latest projects with React, Vue.js, Next.js using
+                          Buefy as CSS framework also developed some REST API
+                          with Koa and Express framework.
                         </motion.p>
                       </div>
 
-                      <div className="description-mask">
+                      {/* <div className="description-mask">
                         <motion.p
                           className="description"
                           variants={textVariants}
@@ -110,7 +89,7 @@ export default function Home() {
                           Lorem ipsum dolor sit amet consectetur adipisicing
                           elit.
                         </motion.p>
-                      </div>
+                      </div> */}
                     </motion.div>
                   </div>
                 </div>
@@ -118,7 +97,7 @@ export default function Home() {
                 <div className="section-right">
                   <div className="nav">
                     <div className="nav-item">
-                      {["WORK", "ABOUT", "CONTACT"].map((item, index) => (
+                      {NAVBAR_LIST.map((item, index) => (
                         <motion.div
                           key={item}
                           variants={textVariants}

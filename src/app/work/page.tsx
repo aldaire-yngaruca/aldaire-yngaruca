@@ -1,45 +1,22 @@
 "use client";
-import "./test.css";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import useAnimating from "../hooks/useAnimating";
+import "../main.css";
+import { COMPANIES } from "@/constants/companies";
 
 export default function Projects() {
-  const [isAnimating, setIsAnimating] = useState(true);
+  const { isAnimating, containerVariants, textVariants } = useAnimating();
 
-  useEffect(() => {
-    const timeout = setTimeout(() => setIsAnimating(false), 500);
-    return () => clearTimeout(timeout);
-  }, []);
-
-  // VARIANTES DE ANIMACIÓN
-  const containerVariants = {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const textVariants: any = {
-    hidden: { opacity: 0, y: 20, filter: "blur(4px)" },
-    show: {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      transition: { duration: 2, ease: [0.25, 0.1, 0.25, 1] }, // reemplaza aquí
-    },
-  };
   return (
     <>
       <AnimatePresence>
         {isAnimating && (
           <motion.div
-            initial={{ y: "-100%" }}
-            animate={{ y: "0%" }}
+            initial={{ y: "0%" }}
+            animate={{ y: "-100%" }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 1 }}
             className="fixed top-0 left-0 w-full h-full bg-white z-50"
           />
         )}
@@ -104,33 +81,25 @@ export default function Projects() {
                 <div className="section-right section-long">
                   <div className="nav">
                     <div className="nav-item">
-                      {[
-                        "Globant",
-                        "Fabrik",
-                        "WePayU",
-                        "BrainRed",
-                        "Rodo",
-                        "SEBAS",
-                      ].map((item, index) => (
+                      {COMPANIES.map((item, index) => (
                         <div key={index} className="nav-link-wrapper">
                           <motion.div
-                            key={item}
+                            key={item.id}
                             variants={textVariants}
                             initial="hidden"
                             animate="show"
                             transition={{ delay: 0.5 + index * 0.2 }}
                           >
-                            <Link
-                              href={`/${item.toLowerCase()}`}
-                              className="nav-link is-pink font-bold"
-                            >
-                              {item}
-                            </Link>
+                            <p className="nav-link is-pink font-bold">
+                              {item.name}
+                            </p>
                             <div className="nav-sub">
                               <div className="role">- Web UI Developer</div>
-                              <div className="badge w-condition-invisible">
-                                NEW
-                              </div>
+                              {item.isNew && (
+                                <div className="badge w-condition-invisible">
+                                  NEW
+                                </div>
+                              )}
                             </div>
                           </motion.div>
                         </div>

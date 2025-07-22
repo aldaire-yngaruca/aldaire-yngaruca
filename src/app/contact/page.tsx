@@ -1,43 +1,18 @@
 "use client";
 import Link from "next/link";
-import "../work/test.css";
-import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Head from "next/head";
+import useAnimating from "../hooks/useAnimating";
+import "../main.css";
 
 export default function Home() {
-  const [isAnimating, setIsAnimating] = useState(true);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => setIsAnimating(false), 500);
-    return () => clearTimeout(timeout);
-  }, []);
-
-  // VARIANTES DE ANIMACIÓN
-  const containerVariants = {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const textVariants: any = {
-    hidden: { opacity: 0, y: 20, filter: "blur(4px)" },
-    show: {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      transition: { duration: 2, ease: [0.25, 0.1, 0.25, 1] }, // reemplaza aquí
-    },
-  };
+  const { isAnimating, containerVariants, textVariants } = useAnimating();
 
   return (
     <>
       <AnimatePresence>
         {isAnimating && (
           <motion.div
+            aria-hidden="true"
             initial={{ y: "0%" }}
             animate={{ y: "-100%" }}
             exit={{ opacity: 0 }}

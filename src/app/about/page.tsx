@@ -1,49 +1,26 @@
 "use client";
 import Link from "next/link";
-import "../work/test.css";
+import "../main.css";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState, useEffect } from "react";
 import foto from "../../assets/alda.jpeg";
 import Image from "next/image";
-export default function AboutPage() {
-  const [isAnimating, setIsAnimating] = useState(true);
+import useAnimating from "../hooks/useAnimating";
 
-  useEffect(() => {
-    const timeout = setTimeout(() => setIsAnimating(false), 500);
-    return () => clearTimeout(timeout);
-  }, []);
+export default function AboutPage() {
+  const { isAnimating, containerVariants, textVariants } = useAnimating();
 
   const MotionImage = motion(Image);
-
-  // VARIANTES DE ANIMACIÓN
-  const containerVariants = {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const textVariants: any = {
-    hidden: { opacity: 0, y: 20, filter: "blur(4px)" },
-    show: {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      transition: { duration: 2, ease: [0.25, 0.1, 0.25, 1] },
-    },
-  };
 
   return (
     <>
       <AnimatePresence>
         {isAnimating && (
           <motion.div
-            initial={{ y: "-100%" }}
-            animate={{ y: "0%" }}
+            aria-hidden="true"
+            initial={{ y: "0%" }}
+            animate={{ y: "-100%" }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 1 }}
             className="fixed top-0 left-0 w-full h-full bg-white z-50"
           />
         )}
