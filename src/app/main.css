@@ -300,7 +300,6 @@ p {
 
 /* ========== Copyright ========== */
 .copyright {
-  display: flex;
   text-align: center;
   letter-spacing: 4px;
   font-size: 10px;
