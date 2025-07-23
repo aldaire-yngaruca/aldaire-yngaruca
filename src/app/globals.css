@@ -19,12 +19,12 @@
   --font-cormorant: "Cormorant Garamond", monospace;
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
     --background: #1a1818;
     --foreground: #ededed;
   }
-} */
+}
 
 body {
   background: var(--background);
