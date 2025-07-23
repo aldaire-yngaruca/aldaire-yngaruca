@@ -1,5 +1,4 @@
 import Link from "next/link";
-import ThemeToggle from "../darkMode/button";
 
 const NavBarLeft = () => {
   return (
@@ -11,10 +10,7 @@ const NavBarLeft = () => {
       </div>
       <div className="nav-line is-pink"></div>
       <div className="nav-left-item nav-copyright">
-        <div className="copyright">
-          ©/2025
-          <ThemeToggle />
-        </div>
+        <div className="copyright">©/2025</div>
       </div>
     </div>
   );

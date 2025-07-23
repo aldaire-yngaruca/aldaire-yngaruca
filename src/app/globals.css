@@ -10,10 +10,6 @@
   --foreground: #1a1818;
 }
 
-.bg-full {
-  background-color: var(--foreground);
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

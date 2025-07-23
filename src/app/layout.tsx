@@ -48,13 +48,9 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      suppressHydrationWarning
       lang="en"
       className={`${playfair.variable} ${geistMono.variable} ${cormorant.variable}`}
     >
-      <head>
-        <script src="/theme-init.js" />
-      </head>
       <body>{children}</body>
     </html>
   );

@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import useAnimating from "../hooks/useAnimating";
 import "../main.css";
@@ -18,7 +17,7 @@ export default function Home() {
             animate={{ y: "-100%" }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
-            className="fixed top-0 left-0 w-full h-full bg-full z-50"
+            className="fixed top-0 left-0 w-full h-full bg-[#ece7e1] z-50"
           />
         )}
       </AnimatePresence>

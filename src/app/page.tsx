@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import useAnimating from "./hooks/useAnimating";
 import { NAVBAR_LIST } from "@/constants/navbarList";
 import { useEffect } from "react";
-import ThemeToggle from "@/components/darkMode/button";
 import NavBarLeft from "@/components/navBar/left";
 
 export default function Home() {
@@ -40,7 +39,7 @@ export default function Home() {
             animate={{ y: "0%" }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="fixed top-0 left-0 w-full h-full bg-full z-50"
+            className="fixed top-0 left-0 w-full h-full bg-[#ece7e1] z-50"
           />
         )}
       </AnimatePresence>
