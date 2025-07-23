@@ -3,6 +3,7 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import useAnimating from "../hooks/useAnimating";
 import "../main.css";
+import NavBarLeft from "@/components/navBar/left";
 
 export default function Home() {
   const { isAnimating, containerVariants, textVariants } = useAnimating();
@@ -17,7 +18,7 @@ export default function Home() {
             animate={{ y: "-100%" }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
-            className="fixed top-0 left-0 w-full h-full bg-white z-50"
+            className="fixed top-0 left-0 w-full h-full bg-full z-50"
           />
         )}
       </AnimatePresence>
@@ -30,17 +31,7 @@ export default function Home() {
             transition={{ duration: 1.5 }}
           >
             <div className="container-page">
-              <div className="nav-left">
-                <div className="nav-left-item">
-                  <Link href="/" className="nav-left-link is-pink">
-                    HOME
-                  </Link>
-                </div>
-                <div className="nav-line is-pink"></div>
-                <div className="nav-left-item nav-copyright">
-                  <div className="copyright">©/2025</div>
-                </div>
-              </div>
+              <NavBarLeft />
 
               <div className="wrapper">
                 <div className="section-left">

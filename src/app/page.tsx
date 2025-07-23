@@ -4,9 +4,31 @@ import "./main.css";
 import { AnimatePresence, motion } from "framer-motion";
 import useAnimating from "./hooks/useAnimating";
 import { NAVBAR_LIST } from "@/constants/navbarList";
+import { useEffect } from "react";
+import ThemeToggle from "@/components/darkMode/button";
+import NavBarLeft from "@/components/navBar/left";
 
 export default function Home() {
   const { isAnimating, containerVariants, textVariants } = useAnimating();
+
+  useEffect(() => {
+    // if (typeof window === "undefined") return;
+
+    const handleMouseUp = () => {
+      const selectedText = window.getSelection()?.toString().trim();
+      if (selectedText) {
+        const utterance = new window.SpeechSynthesisUtterance(selectedText);
+        utterance.lang = "en-US";
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(utterance);
+      }
+    };
+
+    document.addEventListener("mouseup", handleMouseUp);
+    return () => {
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, []);
 
   return (
     <>
@@ -18,7 +40,7 @@ export default function Home() {
             animate={{ y: "0%" }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="fixed top-0 left-0 w-full h-full bg-white z-50"
+            className="fixed top-0 left-0 w-full h-full bg-full z-50"
           />
         )}
       </AnimatePresence>
@@ -31,17 +53,7 @@ export default function Home() {
             transition={{ duration: 1.5 }}
           >
             <div className="container-page">
-              <div className="nav-left">
-                <div className="nav-left-item">
-                  <Link href="/" className="nav-left-link is-pink">
-                    HOME
-                  </Link>
-                </div>
-                <div className="nav-line is-pink"></div>
-                <div className="nav-left-item nav-copyright">
-                  <div className="copyright">©/2025</div>
-                </div>
-              </div>
+              <NavBarLeft />
 
               <div className="wrapper">
                 <div className="section-left">
@@ -80,7 +92,6 @@ export default function Home() {
                           with Koa and Express framework.
                         </motion.p>
                       </div>
-
                       {/* <div className="description-mask">
                         <motion.p
                           className="description"

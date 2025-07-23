@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import foto from "../../assets/alda.jpeg";
 import Image from "next/image";
 import useAnimating from "../hooks/useAnimating";
+import NavBarLeft from "@/components/navBar/left";
 
 export default function AboutPage() {
   const { isAnimating, containerVariants, textVariants } = useAnimating();
@@ -34,17 +35,7 @@ export default function AboutPage() {
             initial="hidden"
             animate="show"
           >
-            <div className="nav-left">
-              <div className="nav-left-item">
-                <Link href="/" className="nav-left-link is-pink">
-                  HOME
-                </Link>
-              </div>
-              <div className="nav-line is-pink"></div>
-              <div className="nav-left-item nav-copyright">
-                <div className="copyright">©/2025</div>
-              </div>
-            </div>
+            <NavBarLeft />
 
             <div className="wrapper">
               <div className="section-left section-long">

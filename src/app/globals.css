@@ -1,8 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #1a1818;
+  --foreground: #ece7e1;
+}
+
+.dark {
+  --background: #ece7e1;
   --foreground: #1a1818;
+}
+
+.bg-full {
+  background-color: var(--foreground);
 }
 
 @theme inline {
@@ -14,15 +23,16 @@
   --font-cormorant: "Cormorant Garamond", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #1a1818;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-cormorant);
+  transition: background-color 1s ease, color 1s ease;
 }

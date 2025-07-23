@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import {
-  Geist,
   Geist_Mono,
   Playfair_Display,
   Cormorant_Garamond,
@@ -49,9 +48,13 @@ export default function RootLayout({
 }>) {
   return (
     <html
+      suppressHydrationWarning
       lang="en"
       className={`${playfair.variable} ${geistMono.variable} ${cormorant.variable}`}
     >
+      <head>
+        <script src="/theme-init.js" />
+      </head>
       <body>{children}</body>
     </html>
   );

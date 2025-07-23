@@ -45,7 +45,6 @@
 }
 
 .nav-left-link {
-  color: var(--charcoal);
   text-align: center;
   letter-spacing: 5px;
   text-transform: uppercase;
@@ -58,7 +57,7 @@
 }
 
 .nav-left-link.is-pink {
-  color: white;
+  color: var(--foreground);
 }
 .nav-left-link.is-pink:hover {
   text-decoration: line-through;
@@ -73,7 +72,7 @@
 }
 
 .nav-line.is-pink {
-  background-color: white;
+  background-color: var(--foreground);
 }
 
 /* ========== Secciones de Página ========== */
@@ -258,7 +257,7 @@ p {
 
 .nav-item .nav-link {
   z-index: 100;
-  color: var(--charcoal);
+  color: var(--foreground);
   text-align: left;
   text-transform: uppercase;
   border: 0 solid #000;
@@ -274,7 +273,7 @@ p {
 }
 
 .nav-link.is-pink {
-  color: white;
+  color: var(--foreground);
   padding-bottom: 2%;
   font-size: 7vw;
   line-height: 1em;
@@ -344,11 +343,12 @@ p {
   font-size: 11px;
   font-weight: 400;
   line-height: 16px;
+  color: var(--foreground);
 }
 
 .badge {
-  background-color: white;
-  color: black;
+  background-color: var(--foreground);
+  color: var(--background);
   border-radius: 20px;
   align-self: center;
   padding: 0 8px;
