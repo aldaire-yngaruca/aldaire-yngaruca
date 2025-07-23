@@ -38,7 +38,7 @@ export default function Home() {
             initial={{ y: "-100%" }}
             animate={{ y: "0%" }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 1 }}
             className="fixed top-0 left-0 w-full h-full bg-[#ece7e1] z-50"
           />
         )}
